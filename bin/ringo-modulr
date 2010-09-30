@@ -1,0 +1,3 @@
+#!/bin/bash
+BIN=`dirname $0 | sed -e "s#^\\([^/]\\)#${PWD}/\\1#"`
+ringo "$BIN/../lib/modulr/main.js" "$@"
