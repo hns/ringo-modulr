@@ -1,3 +1,5 @@
-#!/bin/bash
-BIN=`dirname $0 | sed -e "s#^\\([^/]\\)#${PWD}/\\1#"`
-ringo "$BIN/../lib/modulr/main.js" "$@"
+#!/usr/bin/env ringo
+
+var {args} = require("system");
+var {main} = require("modulr/main");
+main(args);
