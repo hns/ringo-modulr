@@ -11,6 +11,8 @@ exports.app = function(req) {
 };
 
 exports.middleware = [
+    // mount modulr middleware on website root.
+    // this will map URL /program.js to modulrized file ../example/program.js
     modulr.middleware(join(module.directory, "../example/"), "/"),
     static.middleware(module.directory)
 ];
