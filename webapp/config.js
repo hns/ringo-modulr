@@ -1,3 +1,6 @@
+// Demo webapp showing use of ringo-modulr middleware.
+// Run with ringo-web.
+
 var static = require("ringo/middleware/static");
 var modulr = require("modulr/middleware");
 var {join} = require("fs");
@@ -9,5 +12,5 @@ exports.app = function(req) {
 
 exports.middleware = [
     modulr.middleware(join(module.directory, "../example/"), "/"),
-    static.middleware(join(module.directory, "../output/"))
+    static.middleware(module.directory)
 ];
