@@ -48,7 +48,7 @@ The JSGI middleware is provided by module `modulr/middleware`. It exports a `mid
 function that takes two arguments: the root directory of the JavaScript source code,
 and a URL prefix. Any request whose path matches the URL prefix and ends with `.js`
 is looked up in the root JavaScript directory. If the file is found, it is modulrized
-and served. Other, the request is passed on through the JSGI middleware chain.
+and served. Otherwise, the request is passed on through the JSGI middleware chain.
 
 The `webapp` directory contains a demo for the ringo-modulr middleware. Run it with:
 
