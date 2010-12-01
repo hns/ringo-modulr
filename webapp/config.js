@@ -1,18 +1,17 @@
-// Demo webapp showing use of ringo-modulr middleware.
+// Demo Stick app showing use of ringo-modulr middleware.
 // Run with ringo-web.
 
-var static = require("ringo/middleware/static");
-var modulr = require("modulr/middleware");
-var {join} = require("fs");
-var {Response} = require("ringo/webapp/response");
+var {Application} = require("stick");
+var {redirectTo} = require("stick/helpers");
 
-exports.app = function(req) {
-    return Response.redirect("/example.html");
-};
+export("app");
 
-exports.middleware = [
-    // mount modulr middleware on website root.
-    // this will map URL /program.js to modulrized file ../example/program.js
-    modulr.middleware(join(module.directory, "../example/"), "/"),
-    static.middleware(module.directory)
-];
+var app = require("stick").Application(function(req) {
+    return redirectTo("/example.html");
+});
+app.configure("modulr/middleware", "static");
+// mount modulr middleware on website root.
+// this will map URL /program.js to modulrized file ../example/program.js
+app.modulr(module.resolve("../example"), "/");
+app.static(module.directory);
+

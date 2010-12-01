@@ -31,7 +31,7 @@ Install
 Usage
 -----
 
-`ringo-modulr` provides two interfaces: A command line script and a JSGI
+`ringo-modulr` provides two interfaces: A command line script and a Stick
 middleware module.
 
 To process a JavaScript source file with the command line script, run:
@@ -44,13 +44,19 @@ Options are as follows:
     -r --root DIR     Set DIR as root directory. Defaults to the directory containing FILE.
     -h --help         Show this message.
 
-The JSGI middleware is provided by module `modulr/middleware`. It exports a `middleware`
-function that takes two arguments: the root directory of the JavaScript source code,
-and a URL prefix. Any request whose path matches the URL prefix and ends with `.js`
-is looked up in the root JavaScript directory. If the file is found, it is modulrized
-and served. Otherwise, the request is passed on through the JSGI middleware chain.
+The Stick middleware is provided by module `modulr/middleware`. It installs a `modulr`
+method in the Stick application that takes two arguments: the base directory of the
+JavaScript source code, and an optional URL prefix. Any request whose path matches the
+URL prefix and ends with `.js` is looked up in the base JavaScript directory. If the
+file is found, it is modulrized and served. Otherwise, the request is passed on through
+the JSGI middleware chain.
 
-The `webapp` directory contains a demo for the ringo-modulr middleware. Run it with:
+The `webapp` directory contains a demo for the ringo-modulr middleware. You need to
+install Stick in order to run it:
+
+    $ ringo-admin install hns/stick
+
+Then start the application with:
 
     $ ringo-web webapp
 
