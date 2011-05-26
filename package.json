@@ -1,7 +1,8 @@
 {
     "name": "ringo-modulr",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "A client side CommonJS packager",
     "keywords": ["commonjs", "modules", "browser"],
-    "author": "Hannes Wallnöfer (http://hns.github.com/) <hannes@helma.at>"
+    "author": "Hannes Wallnöfer (http://hns.github.com/) <hannesw@gmail.com>",
+    "main": "./lib/modulr/main.js"
 }

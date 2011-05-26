@@ -1,5 +1,5 @@
 #!/usr/bin/env ringo
 
 var {args} = require("system");
-var {main} = require("modulr/main");
+var {main} = require("ringo-modulr");
 main(args);
